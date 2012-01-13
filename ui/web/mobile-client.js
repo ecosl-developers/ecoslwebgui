@@ -37,7 +37,7 @@ function refreshClicked() {
 }
 
 function itemClicked(obj, id) {
-    obj.style.backgroundColor = "transparent"
+    obj.style.backgroundColor = "#FFFFCC"
     if (obj.childNodes[0].src.match('images/balloon.png')) {
         obj.childNodes[0].src = 'images/accept.png'
         obj.style.textDecoration = 'line-through'
@@ -120,13 +120,11 @@ function refreshItems()
                 
                 var newItem = document.createElement('div')
                 newItem.setAttribute('id', id)
-                var sortAttribute = document.createAttribute('sort')
-                sortAttribute.value = id
-                newItem.setAttributeNode(sortAttribute)
+                newItem.setAttribute('sort', id)
                 newItem.setAttribute('class', 'list-item')
                 newItem.setAttribute('onClick', 'itemClicked(this, " + id + ")')
                 newItem.setAttribute('onMouseDown', 'this.style.backgroundColor = "gray"')
-                newItem.setAttribute('onMouseOut', 'this.style.backgroundColor = "transparent"')
+                newItem.setAttribute('onMouseOut', 'this.style.backgroundColor = "#FFFFCC"')
                 newItem.innerHTML = "<img class=list-icon src=images/balloon.png> " + id + " " + title + "</div>"
                 list.appendChild(newItem)
             }

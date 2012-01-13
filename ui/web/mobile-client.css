@@ -30,43 +30,51 @@
 }
 
 .list-title { 
-	width: 480px; height: 48px; 
-	text-align: center; 
+	width: 460px; height: 64px; 
+	margin-left: 20px; 
+	margin-top: 10px;
 	font-family: sans-serif; 
 	font-size: 24pt;
+	border-radius: 5px;
+	background-color: #CCFFCC;
+	border: 1px solid #AAAAAA;
 } 
 
 .list-item { 
-	height: 36px; 
-	width: 373px;
-	margin-left: 75px; 
+	height: 64px; 
+	width: 460px;
+	margin-left: 20px; 
 	margin-top: 5px; 
 	font-family: sans-serif; 
 	font-size: 24pt; 
 	text-decoration: none;
+	border-radius: 5px;
+	background-color: #FFFFCC;
+	border: 1px solid #AAAAAA;
 }
 
 .list-icon { 
 	vertical-align: middle; 
-	margin-right: 10px;
+	margin: 16px;
 }
 
 .refresh-icon { 
 	width:48px;
 	height:48px; 
 	vertical-align: middle; 
-	margin-right: 10px; 
+	margin: 8px; 
+	border-radius: 5px;
 }
 
 .footer { 
-	width: 400px; 
+	width: 460px; 
 	text-align: left; 
-	margin-left: 48px; 
+	margin-left: 20px; 
 	font-family: sans-serif; 
 	font-size: 8pt 
 } 
 
 HR {
-	width: 400px;
-	margin-left: 48px
+	width: 460px;
+	margin-left: 20px
 }
