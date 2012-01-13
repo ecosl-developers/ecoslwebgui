@@ -22,7 +22,7 @@
 
 function getParam() {
     var url = "" + window.location 
-    var i = url.lastIndexOf('?')
+    var i = url.indexOf('?')
     return (url.substring(i+1, window.location.length))
 }
 
