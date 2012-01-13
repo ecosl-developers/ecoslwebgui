@@ -1,0 +1,72 @@
+/*
+* 
+* This file is part of Ecological Shopping List II (ecosl).
+* 
+* Copyright (C) 2012  Jussi Passi
+* 
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Lesser General Public License as published by
+* the Free Software Foundation, version 3 of the License.
+* 
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU Lesser General Public License for more details.
+* 
+* You should have received a copy of the GNU Lesser General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+* Icons by http://dryicons.com
+* http://dryicons.com/terms/#free-license
+*/
+
+.list-base { 
+	width: 480px; 
+	height: 848px; 
+	background-size: contain; 
+	position: fixed; 
+	left: 0; 
+	top: 0; 
+}
+
+.list-title { 
+	width: 480px; height: 48px; 
+	text-align: center; 
+	font-family: sans-serif; 
+	font-size: 24pt;
+} 
+
+.list-item { 
+	height: 36px; 
+	width: 373px;
+	margin-left: 75px; 
+	margin-top: 5px; 
+	font-family: sans-serif; 
+	font-size: 24pt; 
+	text-decoration: none;
+}
+
+.list-icon { 
+	vertical-align: middle; 
+	margin-right: 10px;
+}
+
+.refresh-icon { 
+	width:48px;
+	height:48px; 
+	vertical-align: middle; 
+	margin-right: 10px; 
+}
+
+.footer { 
+	width: 400px; 
+	text-align: left; 
+	margin-left: 48px; 
+	font-family: sans-serif; 
+	font-size: 8pt 
+} 
+
+HR {
+	width: 400px;
+	margin-left: 48px
+}
