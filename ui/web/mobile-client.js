@@ -117,6 +117,9 @@ function refreshItems()
             for (var i=0; i<items.length; i++) {                
                 var id = trimNodeValue(items[i].getElementsByTagName("id")[0].firstChild.nodeValue)
                 var title = trimNodeValue(items[i].getElementsByTagName("name")[0].firstChild.nodeValue)
+                var amount = trimNodeValue(items[i].getElementsByTagName("amount")[0].firstChild.nodeValue)
+                var bought = trimNodeValue(items[i].getElementsByTagName("bought")[0].firstChild.nodeValue)
+                var price = trimNodeValue(items[i].getElementsByTagName("price")[0].firstChild.nodeValue)
                 
                 var newItem = document.createElement('div')
                 newItem.setAttribute('id', id)
@@ -125,8 +128,29 @@ function refreshItems()
                 newItem.setAttribute('onClick', 'itemClicked(this, " + id + ")')
                 newItem.setAttribute('onMouseDown', 'this.style.backgroundColor = "gray"')
                 newItem.setAttribute('onMouseOut', 'this.style.backgroundColor = "#FFFFCC"')
-                newItem.innerHTML = "<img class=list-icon src=images/balloon.png> " + id + " " + title + "</div>"
+                newItem.innerHTML = "<img class=list-icon src=" + (bought==0?"images/balloon.png":"images/accept") + "><span class=item-amount>" + amount 
+		    + "</span><span class=item-title>" + title + "</span><span class=item-price>" + price + "&euro;</span></div>";
+		if (bought!=0) newItem.style.textDecoration = 'line-through'
+
                 list.appendChild(newItem)
+		    
+// TODO write common function, this is used also in itemClicked()		    
+        var s = newItem.previousSibling
+        
+        do {
+            if (s && s.style.textDecoration == 'line-through') {
+                newItem.parentNode.insertBefore(newItem,s)
+                s = newItem.previousSibling
+            } else if (s && s.getAttribute('sort') > newItem.getAttribute('sort')) {
+                newItem.parentNode.insertBefore(newItem,s)
+                s = newItem.previousSibling
+            } else {
+                if (s) { s = s.previousSibling }
+            }
+        } while (s)		
+///////////////////
+	
+	
             }
         }
     }

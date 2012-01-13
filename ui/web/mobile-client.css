@@ -53,9 +53,33 @@
 	border: 1px solid #AAAAAA;
 }
 
+.item-title {
+	margin-top: 14px;
+	float: left;
+	margin-left: 12px;
+	text-decoration: inherit;
+}
+
+.item-amount {
+	margin-top: 14px;
+	float: left;
+	margin-left: 12px;
+	text-decoration: inherit;
+}
+
+.item-price {
+	margin-top: 14px;
+	float: right;
+	margin-right: 12px;
+	text-decoration: inherit;
+}
+
 .list-icon { 
 	vertical-align: middle; 
-	margin: 16px;
+	float: left;
+	margin-top: 16px;
+	margin-left: 8px;
+	margin-bottom: 16px;
 }
 
 .refresh-icon { 
