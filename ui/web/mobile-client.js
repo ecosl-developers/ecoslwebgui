@@ -50,7 +50,7 @@ function itemClicked(obj, id) {
                 obj.parentNode.insertBefore(obj,s)
                 s = obj.previousSibling
             } else {
-                if (s) { s = s.previousSibling }
+                if (s) { s = s.previousSibling }
             }
         } while (s)
         
@@ -70,7 +70,7 @@ function itemClicked(obj, id) {
                 obj.parentNode.insertBefore(obj,s)
                 s = obj.previousSibling
             } else {
-                if (s) { s = s.previousSibling }
+                if (s) { s = s.previousSibling }
             }
         } while (s)		
     }
@@ -110,6 +110,10 @@ function refreshItems()
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             var xml = xmlhttp.responseXML
+		
+	    var title = xml.getElementsByTagName('shoppinglist')[0].getAttribute('title')
+	    if (title) { document.getElementById('listTitle').innerHTML = title } 
+		
             var items = xml.getElementsByTagName('item')
             var list = document.getElementById("myDiv")
             list.innerHTML = "";
@@ -145,7 +149,7 @@ function refreshItems()
                 newItem.parentNode.insertBefore(newItem,s)
                 s = newItem.previousSibling
             } else {
-                if (s) { s = s.previousSibling }
+                if (s) { s = s.previousSibling }
             }
         } while (s)		
 ///////////////////
