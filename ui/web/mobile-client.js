@@ -38,8 +38,8 @@ function refreshClicked() {
 
 function itemClicked(obj, id) {
     obj.style.backgroundColor = "#FFFFCC"
-    if (obj.childNodes[0].src.match('images/balloon.png')) {
-        obj.childNodes[0].src = 'images/accept.png'
+    if (obj.childNodes[0].firstChild.src.match('images/balloon.png')) {
+        obj.childNodes[0].firstChild.src = 'images/accept.png'
         obj.style.textDecoration = 'line-through'
         
         // Move checked item to end of list according to sort value
@@ -120,20 +120,22 @@ function refreshItems()
             
             for (var i=0; i<items.length; i++) {                
                 var id = trimNodeValue(items[i].getElementsByTagName("id")[0].firstChild.nodeValue)
-                var title = trimNodeValue(items[i].getElementsByTagName("name")[0].firstChild.nodeValue)
+                var title = trimNodeValue(items[i].getElementsByTagName("translation")[0].firstChild.nodeValue)
                 var amount = trimNodeValue(items[i].getElementsByTagName("amount")[0].firstChild.nodeValue)
                 var bought = trimNodeValue(items[i].getElementsByTagName("bought")[0].firstChild.nodeValue)
                 var price = trimNodeValue(items[i].getElementsByTagName("price")[0].firstChild.nodeValue)
                 
-                var newItem = document.createElement('div')
+                var newItem = document.createElement('tr')
                 newItem.setAttribute('id', id)
                 newItem.setAttribute('sort', id)
                 newItem.setAttribute('class', 'list-item')
                 newItem.setAttribute('onClick', 'itemClicked(this, " + id + ")')
                 newItem.setAttribute('onMouseDown', 'this.style.backgroundColor = "gray"')
                 newItem.setAttribute('onMouseOut', 'this.style.backgroundColor = "#FFFFCC"')
-                newItem.innerHTML = "<img class=list-icon src=" + (bought==0?"images/balloon.png":"images/accept") + "><span class=item-amount>" + amount 
-		    + "</span><span class=item-title>" + title + "</span><span class=item-price>" + price + "&euro;</span></div>";
+                newItem.innerHTML = "<td class=list-icon><img src=" + (bought==0?"images/balloon.png":"images/accept") 
+		    + "></td><td class=item-amount>" + amount 
+		    + "</td><td class=item-title>" + title + "</td><td class=item-price>" + price*amount + "&euro;<br>" 
+		    + (amount>1?"<span class=a-price>(&agrave; " + price + "&euro;)</span>":"") + "</td></tr>";
 		if (bought!=0) newItem.style.textDecoration = 'line-through'
 
                 list.appendChild(newItem)

@@ -22,11 +22,6 @@
 
 .list-base { 
 	width: 480px; 
-	height: 848px; 
-	background-size: contain; 
-	position: fixed; 
-	left: 0; 
-	top: 0; 
 }
 
 .title-area { 
@@ -46,9 +41,9 @@
 	margin-left: 12px;
 	text-decoration: inherit;
 }
-
+/*
 .list-item { 
-	height: 64px; 
+	min-height: 64px; 
 	width: 460px;
 	margin-left: 20px; 
 	margin-top: 5px; 
@@ -59,34 +54,62 @@
 	background-color: #FFFFCC;
 	border: 1px solid #AAAAAA;
 }
+*/
+
+.item-table {
+	width: 460px;
+	margin-left: 20px; 
+}
+
+table, tr {
+	border-spacing: 0px 4px;
+	margin: 0px;
+	vertical-align: middle;
+	font-family: sans-serif; 
+	font-size: 18pt; 
+}
+
+td {
+	background-color: #FFFFCC;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
 
 .item-title {
-	margin-top: 14px;
-	float: left;
-	margin-left: 12px;
+	width: 290px;
 	text-decoration: inherit;
+	vertical-align: middle; 
 }
 
 .item-amount {
-	margin-top: 14px;
-	float: left;
-	margin-left: 12px;
+	width: 32px;
+	vertical-align: middle; 
 	text-decoration: inherit;
 }
 
 .item-price {
-	margin-top: 14px;
-	float: right;
-	margin-right: 12px;
 	text-decoration: inherit;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;	
+	border-right: 2px solid black;
+	font-size: 14pt; 
+}
+
+.a-price {
+	font-size: 9pt; 	
 }
 
 .list-icon { 
+	height: 64px;
+	width: 64px;
 	vertical-align: middle; 
-	float: left;
-	margin-top: 16px;
+	text-align: center; 
 	margin-left: 8px;
 	margin-bottom: 16px;
+	clear: both;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;	
+	border-left: 2px solid black;
 }
 
 .refresh-icon { 
