@@ -36,6 +36,35 @@ function refreshClicked() {
     refreshItems()
 }
 
+
+function sortItems(item, up) {
+	
+	var s = item.previousSibling
+	
+	if (up) {
+		do {
+			if (s && s.style.textDecoration == 'line-through' && s.getAttribute('sort') > item.getAttribute('sort')) {
+				item.parentNode.insertBefore(item,s)
+				s = item.previousSibling
+			} else {
+				if (s) { s = s.previousSibling }
+			}
+		} while (s)
+	} else {        
+		do {
+			if (s && s.style.textDecoration == 'line-through') {
+				item.parentNode.insertBefore(item,s)
+				s = item.previousSibling
+			} else if (s && s.getAttribute('sort') > item.getAttribute('sort')) {
+				item.parentNode.insertBefore(item,s)
+				s = item.previousSibling
+			} else {
+				if (s) { s = s.previousSibling }
+			}
+		} while (s)			
+	}
+}
+
 function itemClicked(obj, id) {
     obj.style.backgroundColor = "#FFFFCC"
     if (obj.childNodes[0].firstChild.src.match('images/balloon.png')) {
@@ -44,35 +73,12 @@ function itemClicked(obj, id) {
         
         // Move checked item to end of list according to sort value
         obj.parentNode.appendChild(obj)
-        var s = obj.previousSibling
-        do {
-            if (s && s.style.textDecoration == 'line-through' && s.getAttribute('sort') > obj.getAttribute('sort')) {
-                obj.parentNode.insertBefore(obj,s)
-                s = obj.previousSibling
-            } else {
-                if (s) { s = s.previousSibling }
-            }
-        } while (s)
-        
+	sortItems(obj, true)
     } else {
         // Move unchecked item to end of list according to sort value
-
-        obj.childNodes[0].src = 'images/balloon.png'
+        obj.childNodes[0].firstChild.src = 'images/balloon.png'
         obj.style.textDecoration = 'none'
-
-        var s = obj.previousSibling
-        
-        do {
-            if (s && s.style.textDecoration == 'line-through') {
-                obj.parentNode.insertBefore(obj,s)
-                s = obj.previousSibling
-            } else if (s.getAttribute('sort') > obj.getAttribute('sort')) {
-                obj.parentNode.insertBefore(obj,s)
-                s = obj.previousSibling
-            } else {
-                if (s) { s = s.previousSibling }
-            }
-        } while (s)		
+	sortItems(obj, false)
     }
 }
 
@@ -140,22 +146,7 @@ function refreshItems()
 
                 list.appendChild(newItem)
 		    
-// TODO write common function, this is used also in itemClicked()		    
-        var s = newItem.previousSibling
-        
-        do {
-            if (s && s.style.textDecoration == 'line-through') {
-                newItem.parentNode.insertBefore(newItem,s)
-                s = newItem.previousSibling
-            } else if (s && s.getAttribute('sort') > newItem.getAttribute('sort')) {
-                newItem.parentNode.insertBefore(newItem,s)
-                s = newItem.previousSibling
-            } else {
-                if (s) { s = s.previousSibling }
-            }
-        } while (s)		
-///////////////////
-	
+		sortItems(newItem, false)
 	
             }
         }
